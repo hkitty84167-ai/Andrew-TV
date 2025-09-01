@@ -1,0 +1,311 @@
+:root {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --primary-color: #bb86fc;
+    --card-bg: #1e1e1e;
+    --card-hover-bg: #2a2a2a;
+    --pill-bg: #333;
+    --border-color: #444;
+}
+
+[data-theme="light"] {
+    --bg-color: #f5f5f5;
+    --text-color: #212121;
+    --primary-color: #6200ee;
+    --card-bg: #ffffff;
+    --card-hover-bg: #eeeeee;
+    --pill-bg: #e0e0e0;
+    --border-color: #ccc;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: sans-serif;
+    margin: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.large-text {
+    font-size: 1.2em;
+}
+
+#app {
+    display: flex;
+    height: 100vh;
+}
+
+#sidebar {
+    width: 240px;
+    background: #000;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+#navList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+
+#navList li {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+#navList li:hover {
+    background: var(--card-bg);
+}
+
+#navList li.active {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.settings button {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#mainContent {
+    flex-grow: 1;
+    padding: 1rem 2rem;
+    overflow-y: auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+#search {
+    width: 300px;
+    padding: 0.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    border-radius: 4px;
+}
+
+#hero {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+#heroImg {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    border-radius: 0 0 8px 8px;
+}
+
+.button-group button {
+    margin-right: 0.5rem;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#rows {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    margin-bottom: 2rem;
+}
+
+.scroller {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    min-width: 220px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.card:hover, .card:focus {
+    background: var(--card-hover-bg);
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+
+.card .meta {
+    padding: 1rem;
+}
+
+.card .title {
+    font-weight: bold;
+}
+
+.card .desc {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    height: 3.6em; /* 3 lines */
+    overflow: hidden;
+}
+
+.pillbar {
+    margin-top: 0.5rem;
+}
+
+.pill {
+    background: var(--pill-bg);
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    margin-right: 0.3rem;
+}
+
+#playerDrawer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+    padding: 1rem;
+    z-index: 100;
+}
+#playerDrawer.open {
+    transform: translateY(0);
+}
+
+#video {
+    width: 100%;
+    max-height: 70vh;
+}
+
+dialog {
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+}
+dialog::backdrop {
+    background: rgba(0,0,0,0.7);
+}
+
+/* TV Guide styles */
+.guide {
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.guide-timeline {
+    display: flex;
+    position: sticky;
+    top: 0;
+    background: var(--bg-color);
+    z-index: 10;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.guide-time {
+    flex-shrink: 0;
+    width: 240px; /* 30 min * 4px/min * 2 */
+    padding: 1rem;
+    text-align: center;
+    border-left: 1px solid var(--border-color);
+}
+
+.guide-channel-info-header {
+    flex-shrink: 0;
+    width: 150px;
+    padding: 1rem;
+    font-weight: bold;
+    position: sticky;
+    left: 0;
+    background: var(--bg-color);
+}
+
+.guide-channel {
+    display: flex;
+}
+
+.guide-channel:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.guide-channel-info {
+    width: 150px;
+    padding: 1rem;
+    font-weight: bold;
+    flex-shrink: 0;
+    position: sticky;
+    left: 0;
+    background: var(--bg-color);
+    border-right: 1px solid var(--border-color);
+}
+
+.guide-programs {
+    display: flex;
+    align-items: stretch;
+}
+
+.guide-program {
+    flex-shrink: 0;
+    padding: 1rem;
+    border-right: 1px solid var(--border-color);
+    background: var(--card-bg);
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.guide-program:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.guide-program .muted {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-top: 0.25rem;
+}
