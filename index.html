@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andrew TV</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">Andrew TV</div>
+    <nav>
+      <ul id="navList">
+        <li data-section="home" class="active"><a>Home</a></li>
+        <li data-section="movies"><a>Movies</a></li>
+        <li data-section="live"><a>Live</a></li>
+        <li data-section="favorites"><a>Favorites</a></li>
+        <li data-section="continue"><a>Continue</a></li>
+      </ul>
+    </nav>
+    <div class="actions">
+      <input type="search" id="search" placeholder="Search...">
+      <button id="toggleTheme">Toggle Theme</button>
+      <button id="openSettings">Settings</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero">
+      <img id="heroImg" src="" alt="Hero Artwork">
+      <div class="hero-meta">
+        <h1 id="heroTitle"></h1>
+        <p id="heroDesc"></p>
+        <div class="hero-buttons">
+          <button id="heroPlay">Play</button>
+          <button id="heroFav">Favorite</button>
+          <button id="heroDetails">Details</button>
+        </div>
+      </div>
+    </section>
+
+    <div id="rows"></div>
+  </main>
+
+  <dialog id="detailsModal">
+    <img id="detailsImg" src="" alt="Details Poster">
+    <h2 id="detailsTitle"></h2>
+    <p id="detailsDesc"></p>
+    <div id="detailsMeta"></div>
+    <div id="detailsTags"></div>
+    <div class="modal-buttons">
+        <button id="detailsPlay">Play</button>
+        <button id="detailsFav">Favorite</button>
+        <button id="detailsClose">Close</button>
+    </div>
+  </dialog>
+
+  <dialog id="settingsModal">
+    <h2>Settings</h2>
+    <form>
+      <label><input type="checkbox" id="prefAutoplay"> Autoplay next item</label>
+      <label><input type="checkbox" id="prefLargeText"> Large Text</label>
+    </form>
+    <button id="settingsClose">Close</button>
+  </dialog>
+
+  <div id="playerDrawer">
+    <div class="player-info">
+        <h2 id="playerTitle"></h2>
+        <p id="playerDesc"></p>
+    </div>
+    <div class="video-container">
+        <video id="video" controls></video>
+    </div>
+    <div class="player-controls">
+        <button id="btnSeekBack">Rewind 10s</button>
+        <button id="btnPlayPause">Play/Pause</button>
+        <button id="btnSeekFwd">Forward 10s</button>
+        <button id="btnFavorite">Favorite</button>
+        <button id="btnPip">PiP</button>
+        <button id="btnClose">Close Player</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
